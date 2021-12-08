@@ -1,20 +1,98 @@
 # Python Graphene API
 
-This is a GraphQl API written in Python(Flask/ Graphene).
+## Create Department Mutation
+Mutation
+```
+mutation{
+  createDepartment(input: {
+    name: "Department 3"
+  }){
+    department{
+      departmentId
+      name
+    }
+    result{
+      success
+      errorCode
+      errorMessage
+    }
+  }
+}
+```
 
-## Usage
+Response
+```
+{
+  "data": {
+    "createDepartment": {
+      "department": {
+        "departmentId": 1,
+        "name": "Department 3"
+      },
+      "result": {
+        "success": true,
+        "errorCode": null,
+        "errorMessage": null
+      }
+    }
+  }
+}
+```
 
-A Make File is provided for convenience:
+## Create Department Mutation
+Query
+```
+query{
+  listDepartments{
+    departmentId
+    name
+  }
+}
+```
+Response
+```
+{
+  "data": {
+    "listDepartments": [
+      {
+        "departmentId": 1,
+        "name": "Department 1"
+      }
+    ]
+  }
+}
+```
 
- - **make compose** - creates and set up the containers
- - **make down** - stop containers
- - **make test** - run tests
- - **make drop** - drop the docker images
- - **make python** - go inside the python container
- - **make mongo** - go inside the mongo container
+## Install dependencies
+```
+make install
+```
 
-Or you can run the docker commands:
+## Start Docker containers
+```
+make up
+```
 
- - **docker-compose up -d** - creates and set up the containers
- - **docker exec python-graphene pytest -s** - run tests
- 
+## Start GraphQL Server
+```make
+make start
+```
+
+## Run Tests
+```make
+make test
+```
+
+
+
+## Stack
+- [Python](https://www.python.org/)
+- [Graphene](https://graphene-python.org/)
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+- [MariaDB](https://mariadb.org/)
+- [GraphQL](https://graphql.org/)
+- [Docker](https://www.docker.com/)
+- [PyTest](https://docs.pytest.org/en/6.2.x/)
+- [SQL Alchemy](https://www.sqlalchemy.org/)
+
+

@@ -6,24 +6,6 @@ import string
 from test.apps.graphql.bootstrap import execute_query, clear_db, end
 
 
-def create_department_mutation(name: string):
-    return '''
-        mutation {
-            createDepartment(input: { name: "''' + name + '''" }) {
-                department {
-                    departmentId
-                    name
-                }
-                result {
-                    success
-                    errorCode
-                    errorMessage
-                }
-            }
-        }
-    '''
-
-
 def test_create_department():
     clear_db()
     response = when_i_mutate_create_department()
@@ -49,3 +31,21 @@ def assert_success_result(executed):
         "errorCode": None,
         "errorMessage": None
     }
+
+
+def create_department_mutation(name: string):
+    return '''
+        mutation {
+            createDepartment(input: { name: "''' + name + '''" }) {
+                department {
+                    departmentId
+                    name
+                }
+                result {
+                    success
+                    errorCode
+                    errorMessage
+                }
+            }
+        }
+    '''

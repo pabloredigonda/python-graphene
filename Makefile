@@ -6,7 +6,7 @@ PWD := $(dir $(MAKEPATH))
 start:
 	docker exec -it python-graphene python3 apps/graphql/main.py
 up:
-	docker-compose up -d
+	docker-compose up -d --remove-orphans
 
 install :
 	docker exec -it python-graphene pip3 install -r /app/requirements.txt
