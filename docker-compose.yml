@@ -1,0 +1,25 @@
+version: '3'
+
+services: 
+    python-graphene:
+        build: .
+        container_name: python-graphene
+        command: bash -c "while true; do echo hello; sleep 2; done"
+        volumes:
+            - ./:/app
+        expose:
+            - "5000"
+        ports:
+            - 5000:5000
+    python-graphene-mariadb:
+        container_name: python-graphene-mariadb
+        image: mariadb:latest
+        ports:
+            - "3555:3306"
+        volumes:
+            - ./docker/mysql/data:/var/lib/mysql:delegated
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=demo
+            - MYSQL_PASSWORD=root
+            - MYSQL_USER=root

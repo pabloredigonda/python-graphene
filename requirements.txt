@@ -1,0 +1,9 @@
+SQLAlchemy
+graphene_sqlalchemy
+Flask
+Flask-GraphQL
+pipenv
+pytest
+python-dotenv
+PyMySQL
+requests

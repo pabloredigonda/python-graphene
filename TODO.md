@@ -1,0 +1,4 @@
+- Integration tests
+- Core Tests
+- Events
+- Validations
